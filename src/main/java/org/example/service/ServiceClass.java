@@ -1,7 +1,10 @@
-package org.example;
+package org.example.service;
 
-public class ServiceClass implements ServiceInterface{
-private final DAOclass daOclass = new DAOclass();
+import org.example.dao.DAOclass;
+
+public class ServiceClass implements ServiceInterface {
+    private final DAOclass daOclass = new DAOclass();
+
     @Override
     public void createDataBase() {
         daOclass.createDataBase();
@@ -14,24 +17,25 @@ private final DAOclass daOclass = new DAOclass();
 
     @Override
     public void deleteCar(int id) {
-daOclass.deleteCar(id);
+        daOclass.deleteCar(id);
         System.out.println("Delete car id:" + id);
     }
 
     @Override
     public void clearDateBase() {
-daOclass.clearDateBase();
+        daOclass.clearDateBase();
     }
 
     @Override
     public void deleteDataBase() {
-daOclass.deleteDataBase();
+        daOclass.deleteDataBase();
     }
 
     @Override
     public void getAllCar() {
-        try{      daOclass.getAllCar().forEach(System.out::println);}
-        catch (NullPointerException e){
+        try {
+            daOclass.getAllCar().forEach(System.out::println);
+        } catch (NullPointerException e) {
             System.out.println(e.getCause());
         }
     }

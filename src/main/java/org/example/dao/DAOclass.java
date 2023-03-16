@@ -1,9 +1,9 @@
-package org.example;
+package org.example.dao;
+import org.example.model.Car;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-public class DAOclass implements DAOinterface{
+public class DAOclass implements DAOinterface {
     int id;
     List<Car> carlist;
 
@@ -14,14 +14,15 @@ public class DAOclass implements DAOinterface{
     }
 
     @Override
-    public void addCar(String brand,String model, String color, int yearOfIssue, boolean isUsed, double price) {
-        carlist.add(new Car(++id,brand,model,color,yearOfIssue,isUsed,price  ));
-        System.out.println("Car id " + id + " brand "+brand + " модель " +model+ " цена " + price+" добавлен в БД");
+    public void addCar(String brand, String model, String color, int yearOfIssue, boolean isUsed, double price) {
+        carlist.add(new Car(++id, brand, model, color, yearOfIssue, isUsed, price));
+        System.out.println("Car id " + id + " brand " + brand + " модель " + model + " цена " + price + " добавлен в БД");
     }
+
     @Override
     public void deleteCar(int id) {
         --id;
-    carlist.remove(id);
+        carlist.remove(id);
     }
 
     @Override
@@ -32,19 +33,21 @@ public class DAOclass implements DAOinterface{
 
     @Override
     public void deleteDataBase() {
-carlist = null;
+        carlist = null;
         System.out.println("БД удалена!");
     }
+
     @Override
     public List<Car> getAllCar() {
         if (carlist == null) {
             System.out.println("БД отсутствует!");
-            return  null;
+            return null;
+        } else if (carlist.isEmpty()) {
+            System.out.println("БД есть но пуста !");
+            return carlist;
+        } else {
+            return carlist;
         }
-else  if (carlist.isEmpty()) {
-System.out.println("БД есть но пуста !");
-return carlist;}
-else {return carlist;}
 
     }
 

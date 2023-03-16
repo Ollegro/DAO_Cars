@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 import java.util.Objects;
 
@@ -9,7 +9,7 @@ public class Car {
 
     private String model;
     private String color;
-    private  int yearOfIssue;
+    private int yearOfIssue;
     private boolean isUsed;
     private double price;
 
@@ -26,46 +26,58 @@ public class Car {
     public String getModel() {
         return model;
     }
+
     public void setModel(String model) {
         this.model = model;
     }
+
     public String getBrand() {
         return brand;
     }
+
     public void setBrand(String brand) {
         this.brand = brand;
     }
+
     public String getColor() {
         return color;
     }
+
     public void setColor(String color) {
         this.color = color;
     }
+
     public int getYearOfIssue() {
         return yearOfIssue;
     }
+
     public void setYearOfIssue(int yearOfIssue) {
         this.yearOfIssue = yearOfIssue;
     }
+
     public boolean isUsed() {
         return isUsed;
     }
+
     public void setUsed(boolean used) {
         isUsed = used;
     }
+
     public double getPrice() {
         return price;
     }
+
     public void setPrice(double price) {
         this.price = price;
     }
+
     public void setId(int id) {
         this.id = id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,brand, model, color, yearOfIssue, isUsed, price);
+        return Objects.hash(id, brand, model, color, yearOfIssue, isUsed, price);
     }
 
     @Override

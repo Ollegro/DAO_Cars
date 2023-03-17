@@ -6,7 +6,9 @@ public class Car {
     private int id;
     private String brand;
 
-
+    public int getId() {
+        return id;
+    }
     private String model;
     private String color;
     private int yearOfIssue;
@@ -21,6 +23,9 @@ public class Car {
         this.yearOfIssue = yearOfIssue;
         this.isUsed = isUsed;
         this.price = price;
+    }
+
+    public Car() {
     }
 
     public String getModel() {

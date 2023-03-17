@@ -1,29 +1,35 @@
 package org.example;
 
-import org.example.service.ServiceClass;
+import org.example.service.ServiceCarImpl;
 
 public class Main {
     public static void main(String[] args) {
 
-        ServiceClass serviceClass = new ServiceClass();
-        serviceClass.createDataBase();
-        serviceClass.addCar("Volvo", "C60", "black", 2015, true, 1500000.0);
-        serviceClass.addCar("Ford", "Focus", "blue", 2018, true, 1600000.0);
-        serviceClass.addCar("Subaru", "Vitara", "white", 2017, true, 1300000.0);
-        serviceClass.addCar("ВАЗ", "Гранта", "grey", 2023, false, 1000000.0);
-        serviceClass.addCar("Cherry", "Tigo", "red", 2022, false, 2500000.0);
-        serviceClass.addCar("BMW", "X3", "black", 2017, true, 2000000.0);
-        serviceClass.getAllCar();
-        serviceClass.getCarById(1);
+        ServiceCarImpl serviceCarImpl = new ServiceCarImpl();
+        serviceCarImpl.createDataBase();
+        serviceCarImpl.addCar("Volvo", "C60", "black", 2015, true, 1500000.0);
+        serviceCarImpl.addCar("Ford", "Focus", "blue", 2018, true, 1600000.0);
+        serviceCarImpl.addCar("Subaru", "Vitara", "white", 2017, true, 1300000.0);
+        serviceCarImpl.addCar("ВАЗ", "Веста", "grey", 2023, false, 1000000.0);
+        serviceCarImpl.addCar("Cherry", "Tigo", "red", 2022, false, 2500000.0);
+        serviceCarImpl.addCar("BMW", "X3", "black", 2017, true, 2000000.0);
+        serviceCarImpl.getAllCar().forEach(System.out::println);
+        System.out.println();
 
-        serviceClass.deleteCar(1);
-        serviceClass.getAllCar();
-        serviceClass.clearDateBase();
-        serviceClass.getAllCar();
-        serviceClass.addCar("ВАЗ", "Гранта", "grey", 2023, false, 1000000.0);
-        serviceClass.addCar("Cherry", "Tigo", "red", 2022, false, 2500000.0);
-        serviceClass.getAllCar();
-        serviceClass.deleteDataBase();
-        serviceClass.getAllCar();
+        serviceCarImpl.deleteCar(6);
+        serviceCarImpl.getCarById(55);
+        serviceCarImpl.deleteCar(2);
+        serviceCarImpl.getAllCar().forEach(System.out::println);
+        System.out.println();
+        serviceCarImpl.clearDateBase();
+        System.out.println();
+        serviceCarImpl.getAllCar().forEach(System.out::println);
+        serviceCarImpl.deleteDataBase();
+        try {
+            serviceCarImpl.getAllCar().forEach(System.out::println);
+        } catch (NullPointerException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
+
     }
 }

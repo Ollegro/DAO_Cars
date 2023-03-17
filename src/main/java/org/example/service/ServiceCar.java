@@ -1,23 +1,21 @@
-package org.example.dao;
+package org.example.service;
 
 import org.example.model.Car;
 
 import java.util.List;
 
-public interface DAOinterface {
+public interface ServiceCar {
     void createDataBase();
 
     void addCar(String brand, String model, String color, int yearOfIssue, boolean isUsed, double price);
 
-    void deleteCar(int i);
+    void deleteCar(int id);
 
     void clearDateBase();
 
     void deleteDataBase();
 
-    List<Car> getAllCar();
+    List<Car> getAllCar() ;
 
-    void getCarById(int id);
-
-
+    Car getCarById(int id);
 }
